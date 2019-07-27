@@ -2,16 +2,16 @@ package by.egorgutko.myproject.Presenter;
 
 import by.egorgutko.myproject.Interface.MainActivityView;
 
-public abstract class BasePresenter {
+public abstract class BasePresenter<T> {
 
-    MainActivityView mainActivityView;
+    T mActivity;
 
-    public void attachView(MainActivityView view) {
+    public void attachView(T view) {
         if (view != null)
-            mainActivityView = view;
+            mActivity = view;
     }
 
     public void detachView() {
-        mainActivityView = null;
+        mActivity = null;
     }
 }

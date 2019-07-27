@@ -5,25 +5,46 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
+import by.egorgutko.myproject.ListActivity;
 import by.egorgutko.myproject.R;
 
 public class ListFragment extends Fragment {
+    ListAdapter listAdapter = new ListAdapter();
 
-
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup containre, Bundle saveInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_list, containre, false);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.listRecyclerView);
 
-        ListAdapter listAdapter = new ListAdapter();
+        //recyclerView.setOnClickListener(this);
+
+        listAdapter.setmOnItemClickListener(new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                ListFragment.this.onClick(listAdapter.getItem(position));
+            }
+        });
         recyclerView.setAdapter(listAdapter);
+        //просто показываем, что список вертикальный
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         return view;
     }
+
+
+    public void onClick(Pair pPair) {
+        if (getActivity() != null) {
+
+            ((ListActivity) getActivity()).newFragment(pPair);
+        }
+    }
+
+
 }

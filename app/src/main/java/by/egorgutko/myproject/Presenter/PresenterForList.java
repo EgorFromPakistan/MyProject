@@ -5,9 +5,7 @@ import javax.inject.Inject;
 import by.egorgutko.myproject.Interface.MainActivityView;
 import by.egorgutko.myproject.MainActivity;
 
-public class PresenterForList extends BasePresenter {
-  //  MainActivityView mainActivityView;
-
+public class PresenterForList extends BasePresenter<MainActivity> {
     @Inject
     PresenterForList() {
     }
@@ -22,6 +20,6 @@ public class PresenterForList extends BasePresenter {
     }
 */
     public void exitOfApp() {
-        mainActivityView.exitOfApp();
+        mActivity.exitOfApp();
     }
 }
