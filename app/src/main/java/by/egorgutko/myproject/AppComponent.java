@@ -11,5 +11,6 @@ public interface AppComponent {
 
     void inject(MainActivity mainActivity);
     void inject(ListFragment listFragment);
+    void inject(ListActivity listActivity);
 
 }

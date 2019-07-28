@@ -1,5 +1,6 @@
 package by.egorgutko.myproject.Data;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,6 +22,10 @@ import by.egorgutko.myproject.R;
 
 public class ListFragment extends Fragment {
    // ListAdapter listAdapter = new ListAdapter();
+
+    @SuppressLint("ValidFragment")
+    @Inject
+    ListFragment(){}
 
     private AppComponent mAppComponent;
     @Inject

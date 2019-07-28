@@ -20,18 +20,24 @@ public class ListActivity extends AppCompatActivity {
 
     int count;
     DetailsOfFragment frag1;
-    ListFragment fragment;
+   // ListFragment fragment;
+
     FragmentManager fragmetManager;
 
+    private AppComponent mAppComponent;
+    @Inject
+    ListFragment listFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAppComponent = DaggerAppComponent.builder().build();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        fragment = new ListFragment();
+        mAppComponent.inject(this);
+        //fragment = new ListFragment();
         fragmetManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmetManager.beginTransaction();
-        fragmentTransaction.add(R.id.placeholder, fragment);
+        fragmentTransaction.add(R.id.placeholder, listFragment);
         fragmentTransaction.commit();
         frag1 = new DetailsOfFragment();
 
