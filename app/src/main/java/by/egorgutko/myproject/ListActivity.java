@@ -20,7 +20,7 @@ public class ListActivity extends AppCompatActivity {
 
     int count;
     DetailsOfFragment frag1;
-   // ListFragment fragment;
+    // ListFragment fragment;
 
     FragmentManager fragmetManager;
 
@@ -45,8 +45,8 @@ public class ListActivity extends AppCompatActivity {
 
     public void newFragment(Pair<String, Integer> pPair) {
         Bundle bundle = new Bundle();
-        bundle.putString("1",pPair.first);
-        bundle.putInt("2",pPair.second);
+        bundle.putString("1", pPair.first);
+        bundle.putInt("2", pPair.second);
         frag1.setArguments(bundle);
         FragmentTransaction fragmentTransaction = fragmetManager.beginTransaction();
         fragmentTransaction.replace(R.id.placeholder, frag1);
