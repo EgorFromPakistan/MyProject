@@ -14,12 +14,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
 import by.egorgutko.myproject.R;
 
 import static android.media.CamcorderProfile.get;
 
 public class ListAdapter extends RecyclerView.Adapter{
 
+    @Inject
+    ListAdapter(){}
     // новый ViewHolder, который может переиспользоваться в дальнейшем
     @NonNull
     @Override

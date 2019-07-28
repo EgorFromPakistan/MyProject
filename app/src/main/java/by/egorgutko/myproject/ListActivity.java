@@ -9,8 +9,11 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import by.egorgutko.myproject.Data.DetailsOfFragment;
 import by.egorgutko.myproject.Data.ListFragment;
+import by.egorgutko.myproject.Presenter.PresenterForRecycler;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class ListActivity extends AppCompatActivity {
     DetailsOfFragment frag1;
     ListFragment fragment;
     FragmentManager fragmetManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

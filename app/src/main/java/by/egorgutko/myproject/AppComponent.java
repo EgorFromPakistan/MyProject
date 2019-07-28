@@ -2,6 +2,7 @@ package by.egorgutko.myproject;
 
 import javax.inject.Singleton;
 
+import by.egorgutko.myproject.Data.ListFragment;
 import dagger.Component;
 
 @Singleton
@@ -9,5 +10,6 @@ import dagger.Component;
 public interface AppComponent {
 
     void inject(MainActivity mainActivity);
+    void inject(ListFragment listFragment);
 
 }

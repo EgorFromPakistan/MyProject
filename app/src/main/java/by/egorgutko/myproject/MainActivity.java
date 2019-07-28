@@ -57,11 +57,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
 
     @Override
-    public void changeActivity() {
-
-    }
-
-    @Override
     public void exitOfApp() {
         finish();
     }
