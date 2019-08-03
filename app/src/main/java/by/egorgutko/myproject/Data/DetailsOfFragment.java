@@ -8,17 +8,27 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import by.egorgutko.myproject.R;
 
 public class DetailsOfFragment extends Fragment {
 
 
+    private Unbinder unbinder;
+
+    @BindView(R.id.tText)
+    TextView tView;
+
+    @BindView(R.id.itemImage)
+    ImageView iView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, null);
-        TextView tView = (TextView) view.findViewById(R.id.tText);
-        ImageView iView =(ImageView) view.findViewById(R.id.itemImage);
+        unbinder = ButterKnife.bind(this, view);
         tView.setText(getArguments().getString("1"));
         iView.setImageResource( getArguments().getInt("2"));
         return view;

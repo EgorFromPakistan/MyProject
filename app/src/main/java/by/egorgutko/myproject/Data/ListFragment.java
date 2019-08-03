@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import by.egorgutko.myproject.AppComponent;
 import by.egorgutko.myproject.DaggerAppComponent;
 import by.egorgutko.myproject.ListActivity;

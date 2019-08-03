@@ -11,17 +11,20 @@ public class NetworkService {
     private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
     private Retrofit mRetrofit;
 
+
+    //мы объявим и инициализируем Retrofit в конструкторе
     private NetworkService() {
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        /*HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient.Builder client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor);
+                */
 
+        //билдер
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(client.build())
                 .build();
     }
 
@@ -32,6 +35,7 @@ public class NetworkService {
         return mInstance;
     }
 
+    //Мы передаем объекту Retrofit в метод create класс интерфейса, в котором описывали методы
     public JSONPlaceHolderApi getJSONApi() {
         return mRetrofit.create(JSONPlaceHolderApi.class);
     }
