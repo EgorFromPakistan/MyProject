@@ -1,12 +1,10 @@
 package by.egorgutko.myproject;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import javax.inject.Inject;
 
@@ -14,12 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import by.egorgutko.myproject.Interface.MainActivityView;
-import by.egorgutko.myproject.Model.NetworkService;
-import by.egorgutko.myproject.Model.Post;
 import by.egorgutko.myproject.Presenter.PresenterForList;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
 

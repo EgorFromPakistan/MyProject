@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import by.egorgutko.myproject.Model.NetworkService;
-import by.egorgutko.myproject.Model.Post;
+import by.egorgutko.myproject.Retrofit.NetworkService;
+import by.egorgutko.myproject.Retrofit.Post;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -1,4 +1,4 @@
-package by.egorgutko.myproject.Model;
+package by.egorgutko.myproject.Retrofit;
 
 import java.util.List;
 
