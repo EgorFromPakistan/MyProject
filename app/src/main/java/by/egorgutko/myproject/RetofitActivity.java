@@ -7,8 +7,14 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import by.egorgutko.myproject.Retrofit.Data;
 import by.egorgutko.myproject.Retrofit.NetworkService;
-import by.egorgutko.myproject.Retrofit.data;
+import by.egorgutko.myproject.Retrofit.Data;
+import by.egorgutko.myproject.Retrofit.User;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,35 +22,37 @@ import retrofit2.Response;
 
 public class RetofitActivity extends AppCompatActivity {
 
-    final TextView tView = findViewById(R.id.textView);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retofit);
         //ButterKnife.bind(this);
-
+        final TextView tView = findViewById(R.id.textView);
         NetworkService.getInstance()
                 .getApi()
                 .getPostWithID(2)
-                .enqueue(new Callback<data>() {
-                    @Override
-                    public void onResponse(@NonNull Call<data> call, @NonNull Response<data> response) {
-                        data mdata = response.body();
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<User>() {
+                               @Override
+                               public void accept(User user) throws Exception {
 
-                        tView.append(mdata.getId() + "\n");
-                        tView.append(mdata.getEmail() + "\n");
-                        tView.append(mdata.getFirst_name() + "\n");
-                        tView.append(mdata.getLast_name() + "\n");
-                        tView.append(mdata.getAvatar() + "\n");
-                    }
+                                   tView.append(user.mData.getId() + "\n");
+                                   tView.append(user.mData.getEmail() + "\n");
+                                   tView.append(user.mData.getFirst_name() + "\n");
+                                   tView.append(user.mData.getLast_name() + "\n");
+                                   tView.append(user.mData.getAvatar() + "\n");
 
-                    @Override
-                    public void onFailure(@NonNull Call<data> call, @NonNull Throwable t) {
+                               }
+                           },
+                        new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                               throwable.printStackTrace();
+                            }
+                        });
 
-                        tView.append("Error occurred while getting request!");
-                        t.printStackTrace();
-                    }
-                });
     }
 
 

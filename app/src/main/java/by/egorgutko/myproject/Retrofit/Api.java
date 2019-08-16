@@ -9,10 +9,12 @@ import retrofit2.http.Path;
 
 public interface Api {
 
-    @GET("/users/{id}")
-    public Call<data> getPostWithID(@Path("id") int id);
+//вынести константами в отдельный класс
+    @GET("users/{id}")
+    Observable<User> getPostWithID(@Path("id") int id);
 
-    @POST("/posts")
-    public Call<data> postData(@Body data mdata);
+    @POST("posts")
+    Observable<User> postData(@Body User mData);
 
 }
+
