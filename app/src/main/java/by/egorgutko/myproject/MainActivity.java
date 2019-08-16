@@ -1,10 +1,15 @@
 package by.egorgutko.myproject;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import javax.inject.Inject;
 
@@ -14,7 +19,7 @@ import butterknife.OnClick;
 import by.egorgutko.myproject.Interface.MainActivityView;
 import by.egorgutko.myproject.Presenter.PresenterForList;
 
-public class MainActivity extends AppCompatActivity implements MainActivityView {
+public class MainActivity extends AppCompatActivity implements  MainActivityView  {
 
 
     @Inject
@@ -27,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     private AppComponent mAppComponent;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mAppComponent = DaggerAppComponent.builder().build();
@@ -35,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         mAppComponent.inject(this);
         ButterKnife.bind(this);
         presenterForList.attachView(this);
+
     }
 
     @Override
@@ -54,6 +62,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         startActivity(intent);
     }
 
+    @OnClick(R.id.dataBase)
+    void transitiToDataBase(View v){
+        Intent intent = new Intent(this, DataBaseActivity.class);
+        startActivity(intent);
+    }
+
     @OnClick(R.id.Retr)
     void transitionRetorofit(View v){
         Intent intent = new Intent(this, RetofitActivity.class);
@@ -65,4 +79,5 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     public void exitOfApp() {
         finish();
     }
+
 }
