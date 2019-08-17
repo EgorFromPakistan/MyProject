@@ -19,7 +19,7 @@ import butterknife.OnClick;
 import by.egorgutko.myproject.Interface.MainActivityView;
 import by.egorgutko.myproject.Presenter.PresenterForList;
 
-public class MainActivity extends AppCompatActivity implements  MainActivityView  {
+public class MainActivity extends AppCompatActivity implements MainActivityView {
 
 
     @Inject
@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity implements  MainActivityView
     Button listOfTraining;
 
     private AppComponent mAppComponent;
-
-
 
 
     @Override
@@ -52,24 +50,24 @@ public class MainActivity extends AppCompatActivity implements  MainActivityView
     }
 
     @OnClick(R.id.ExitOfApp)
-    void exitApplication(){
+    void exitApplication() {
         presenterForList.exitOfApp();
     }
 
     @OnClick(R.id.ListOfTraining)
-    void transitionToList(View v){
+    void transitionToList(View v) {
         Intent intent = new Intent(this, ListActivity.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.dataBase)
-    void transitiToDataBase(View v){
+    void transitiToDataBase(View v) {
         Intent intent = new Intent(this, DataBaseActivity.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.Retr)
-    void transitionRetorofit(View v){
+    void transitionRetorofit(View v) {
         Intent intent = new Intent(this, RetofitActivity.class);
         startActivity(intent);
     }

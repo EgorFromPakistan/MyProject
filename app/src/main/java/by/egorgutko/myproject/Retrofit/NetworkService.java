@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkService {
     private static NetworkService mInstance;
-    private static final String BASE_URL = "https://reqres.in/api/";
+    private static final String BASE_URL = StaticValue.baseUrl;
     private Retrofit mRetrofit;
 
     private NetworkService() {

@@ -37,8 +37,7 @@ public class AutActivity extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null){
-                    //Log.d(TAG, "signed_in");
+                if (user != null) {
                     Intent intent = new Intent(AutActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
@@ -52,58 +51,58 @@ public class AutActivity extends AppCompatActivity implements View.OnClickListen
         findViewById(R.id.btn_sign_in).setOnClickListener(this);
         findViewById(R.id.btn_registration).setOnClickListener(this);
 
-       // FirebaseUser user = mAuth.getCurrentUser();
-      //  if(user != null){
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(AutActivity.this, DataBaseActivity.class);
+            startActivity(intent);
+        }
+        // FirebaseUser user = mAuth.getCurrentUser();
+        //  if(user != null){
         //    Intent intent = new Intent(this, MainActivity.class);
-          //  startActivity(intent);
-      //  }
+        //  startActivity(intent);
+        //  }
     }
-
 
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.btn_sign_in)
-        {
-            signin(ETemail.getText().toString(),ETpassword.getText().toString());
-        }else if (view.getId() == R.id.btn_registration)
-        {
-            registration(ETemail.getText().toString(),ETpassword.getText().toString());
+        if (view.getId() == R.id.btn_sign_in) {
+            signin(ETemail.getText().toString(), ETpassword.getText().toString());
+        } else if (view.getId() == R.id.btn_registration) {
+            registration(ETemail.getText().toString(), ETpassword.getText().toString());
         }
 
     }
 
-    public void onMain(){
+    public void onMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void signin(String email , String password)
-    {
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+    public void signin(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     Toast.makeText(AutActivity.this, "Aвторизация успешна", Toast.LENGTH_SHORT).show();
-                   onMain();
-                }else
+                    onMain();
+                } else
                     Toast.makeText(AutActivity.this, "Aвторизация провалена", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-    public void registration (String email , String password){
+
+    public void registration(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
+                if (task.isSuccessful()) {
                     Toast.makeText(AutActivity.this, "Регистрация успешна", Toast.LENGTH_SHORT).show();
                     //onMain();
-                }
-                else
+                } else
                     Toast.makeText(AutActivity.this, "Регистрация провалена", Toast.LENGTH_SHORT).show();
             }
         });
-}
+    }
 }

@@ -9,11 +9,11 @@ import retrofit2.http.Path;
 
 public interface Api {
 
-//вынести константами в отдельный класс
-    @GET("users/{id}")
+    //вынести константами в отдельный класс
+    @GET(StaticValue.forGetUser)
     Observable<User> getPostWithID(@Path("id") int id);
 
-    @POST("posts")
+    @POST(StaticValue.forPost)
     Observable<User> postData(@Body User mData);
 
 }

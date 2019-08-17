@@ -22,11 +22,12 @@ import by.egorgutko.myproject.ListActivity;
 import by.egorgutko.myproject.R;
 
 public class ListFragment extends Fragment {
-   // ListAdapter listAdapter = new ListAdapter();
+    // ListAdapter listAdapter = new ListAdapter();
 
     @SuppressLint("ValidFragment")
     @Inject
-    ListFragment(){}
+    ListFragment() {
+    }
 
     private AppComponent mAppComponent;
     @Inject

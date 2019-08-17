@@ -5,23 +5,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class Data {
 
-    @SerializedName("id")
+    @SerializedName(StaticValue.forId)
     @Expose
     private long id;
 
-    @SerializedName("email")
+    @SerializedName(StaticValue.forEmail)
     @Expose
     private String email;
 
-    @SerializedName("first_name")
+    @SerializedName(StaticValue.forFirstName)
     @Expose
     private String first_name;
 
-    @SerializedName("last_name")
+    @SerializedName(StaticValue.forLastName)
     @Expose
     private String last_name;
 
-    @SerializedName("avatar")
+    @SerializedName(StaticValue.forAvatar)
     @Expose
     private String avatar;
 

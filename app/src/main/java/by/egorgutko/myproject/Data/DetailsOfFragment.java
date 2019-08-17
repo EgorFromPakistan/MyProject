@@ -30,7 +30,7 @@ public class DetailsOfFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment1, null);
         unbinder = ButterKnife.bind(this, view);
         tView.setText(getArguments().getString("1"));
-        iView.setImageResource( getArguments().getInt("2"));
+        iView.setImageResource(getArguments().getInt("2"));
         return view;
     }
 }

@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_list_tasks2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DataBaseActivity">
+    android:layout_height="match_parent">
 
     <ListView android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/discr_for_task">
-
     </ListView>
-</android.support.constraint.ConstraintLayout>
+
+    <EditText android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/et_new_tasks"
+        android:layout_toStartOf="@+id/btn_add"
+        tools:ignore="RtlCompat" />
+    <Button android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/et_new_tasks"
+        android:layout_alignBottom="@+id/et_new_tasks"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/btn_add"
+        android:text="New"
+        tools:ignore="RtlCompat" />
+</RelativeLayout>

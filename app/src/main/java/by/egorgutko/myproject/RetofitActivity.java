@@ -49,7 +49,7 @@ public class RetofitActivity extends AppCompatActivity {
                         new Consumer<Throwable>() {
                             @Override
                             public void accept(Throwable throwable) throws Exception {
-                               throwable.printStackTrace();
+                                throwable.printStackTrace();
                             }
                         });
 

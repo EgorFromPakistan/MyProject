@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
-    @SerializedName("data")
+    @SerializedName(StaticValue.forUser)
     @Expose
     public Data mData;
 }

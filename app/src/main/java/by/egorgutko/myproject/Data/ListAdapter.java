@@ -20,20 +20,22 @@ import by.egorgutko.myproject.R;
 
 import static android.media.CamcorderProfile.get;
 
-public class ListAdapter extends RecyclerView.Adapter{
+public class ListAdapter extends RecyclerView.Adapter {
 
     @Inject
-    ListAdapter(){}
+    ListAdapter() {
+    }
+
     // новый ViewHolder, который может переиспользоваться в дальнейшем
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int position) {
-        View view = LayoutInflater.from(parent.getContext()).inflate( R.layout.list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
         return new ListViewHolder(view);
     }
 
     public interface OnItemClickListener {
-        void onClick( int position);
+        void onClick(int position);
     }
 
     protected OnItemClickListener mOnItemClickListener;
@@ -47,17 +49,17 @@ public class ListAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((ListViewHolder) holder).binView(position);
-        ((ListViewHolder) holder).setListeners(position,mOnItemClickListener);
+        ((ListViewHolder) holder).setListeners(position, mOnItemClickListener);
     }
 
-        // возвращает общее количество элементов списка
+    // возвращает общее количество элементов списка
     @Override
     public int getItemCount() {
         return OurData.title.length;
     }
 
     public Pair getItem(int position) {
-        return new Pair<String,Integer>(OurData.title[position], OurData.picturePart[position]);
+        return new Pair<String, Integer>(OurData.title[position], OurData.picturePart[position]);
     }
 
     //реализация класса, хранящего ссылки на виджеты
@@ -83,7 +85,7 @@ public class ListAdapter extends RecyclerView.Adapter{
                 @Override
                 public void onClick(View v) {
                     if (onItemClickListener != null) {
-                        onItemClickListener.onClick( position);
+                        onItemClickListener.onClick(position);
                     }
                 }
             });
@@ -95,7 +97,6 @@ public class ListAdapter extends RecyclerView.Adapter{
             mTextViev.setText(OurData.title[position]);
             mItemView.setImageResource(OurData.picturePart[position]);
         }
-
 
 
     }

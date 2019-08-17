@@ -3,9 +3,14 @@ package by.egorgutko.myproject;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,38 +26,44 @@ public class DataBaseActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
-    private List<String> DiscrTasks;
 
-    ListView ListUserTask;
+    FirebaseUser user = mAuth.getInstance().getCurrentUser();
+
+    FirebaseListAdapter mAdapter;
+
+    private EditText ET_new_task;
+    private Button Btn_new_task;
+
+    ListView ListUserTasks;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_base);
 
-        ListUserTask = (ListView) findViewById(R.id.discr_for_task);
+        ListUserTasks = (ListView) findViewById(R.id.discr_for_task);
 
         myRef = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser user = mAuth.getInstance().getCurrentUser();
 
-        myRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+        mAdapter = new FirebaseListAdapter<String>(this, String.class, android.R.layout.simple_list_item_1, myRef.child(user.getUid()).child("Tasks")) {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>();
-                DiscrTasks = dataSnapshot.child("Tasks").getValue(t);
-                updateUI();
+            protected void populateView(View v, String s, int position) {
+                TextView text = (TextView) v.findViewById(android.R.id.text1);
+                text.setText(s);
             }
+        };
+        ListUserTasks.setAdapter(mAdapter);
 
+        Btn_new_task = (Button) findViewById(R.id.btn_add);
+        ET_new_task = (EditText) findViewById(R.id.et_new_tasks);
+
+        Btn_new_task.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onClick(View view) {
+                myRef.child(user.getUid()).child("Tasks").push().setValue(ET_new_task.getText().toString());
             }
         });
 
-
-    }
-    private void updateUI(){
-        ArrayAdapter<String> adapterL = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_list_item_1,DiscrTasks);
-        ListUserTask.setAdapter(adapterL);
     }
 }
