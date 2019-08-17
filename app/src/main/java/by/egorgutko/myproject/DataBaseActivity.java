@@ -39,7 +39,7 @@ public class DataBaseActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>();
-                DiscrTasks = dataSnapshot.child("Task").getValue(t);
+                DiscrTasks = dataSnapshot.child("Tasks").getValue(t);
                 updateUI();
             }
 
@@ -52,7 +52,7 @@ public class DataBaseActivity extends AppCompatActivity {
 
     }
     private void updateUI(){
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_expandable_list_item_1,DiscrTasks);
-        ListUserTask.setAdapter(adapter);
+        ArrayAdapter<String> adapterL = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_list_item_1,DiscrTasks);
+        ListUserTask.setAdapter(adapterL);
     }
 }
