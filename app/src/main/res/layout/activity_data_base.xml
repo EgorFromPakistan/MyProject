@@ -6,10 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/discr_for_task">
-    </ListView>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_add"
+        android:id="@+id/rv_list_tasks">
+    </android.support.v7.widget.RecyclerView>
 
     <EditText android:layout_width="270dp"
         android:layout_height="50dp"

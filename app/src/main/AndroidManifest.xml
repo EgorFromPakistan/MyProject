@@ -21,7 +21,8 @@
         <activity android:name=".ListActivity" />
         <activity android:name=".RetofitActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".DataBaseActivity"></activity>
+        <activity android:name=".DataBaseActivity" />
+        <activity android:name=".DetailTaskActivity"></activity>
     </application>
 
 </manifest>

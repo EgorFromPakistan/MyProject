@@ -59,4 +59,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.1'
     // FirebaseUI Database only
     implementation 'com.firebaseui:firebase-ui-database:1.1.1'
+    implementation 'com.google.firebase:firebase-storage:16.0.1'
+    implementation 'com.google.firebase:firebase-auth:16.0.1'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
