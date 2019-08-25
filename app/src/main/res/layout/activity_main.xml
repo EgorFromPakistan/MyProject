@@ -11,22 +11,15 @@
         android:id="@+id/linearLayout2"
         android:layout_marginTop="3pt"
         android:layout_marginLeft="5pt"
-        android:layout_marginRight="5pt">
+        android:layout_marginRight="5pt"
+        android:orientation="vertical">
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:text="Show"
+        android:text="Show(List)"
         android:textSize="8pt"
         android:id="@+id/ListOfTraining">
-    </Button>
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:text="Exit"
-        android:textSize="8pt"
-        android:id="@+id/ExitOfApp">
     </Button>
         <Button
             android:layout_height="wrap_content"
@@ -40,9 +33,17 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:text="Base"
+            android:text="Base(firebase)"
             android:textSize="8pt"
             android:id="@+id/dataBase">
+        </Button>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="Exit"
+            android:textSize="8pt"
+            android:id="@+id/ExitOfApp">
         </Button>
     </LinearLayout>>
 </android.support.constraint.ConstraintLayout>
