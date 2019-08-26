@@ -1,6 +1,7 @@
 package by.egorgutko.myproject;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import by.egorgutko.myproject.Interface.MainActivityView;
 import by.egorgutko.myproject.Presenter.PresenterForList;
+import by.egorgutko.myproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
 
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     protected void onCreate(Bundle savedInstanceState) {
         mAppComponent = DaggerAppComponent.builder().build();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+       setContentView(R.layout.activity_main);
         mAppComponent.inject(this);
         ButterKnife.bind(this);
         presenterForList.attachView(this);

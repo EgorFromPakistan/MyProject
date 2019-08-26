@@ -1,6 +1,7 @@
 package by.egorgutko.myproject;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
+import by.egorgutko.myproject.databinding.ActivityDataBaseBinding;
+
 public class DataBaseActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -35,7 +38,6 @@ public class DataBaseActivity extends AppCompatActivity {
 
     private EditText ET_new_task;
     private Button Btn_new_task;
-
 
     private static class TaskViewHolder extends RecyclerView.ViewHolder {
 
@@ -50,16 +52,19 @@ public class DataBaseActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_base);
+       // setContentView(R.layout.activity_data_base);
+
+        ActivityDataBaseBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_data_base);
 
 
         myRef = FirebaseDatabase.getInstance().getReference();
 
-        Btn_new_task = (Button) findViewById(R.id.btn_add);
-        ET_new_task = (EditText) findViewById(R.id.et_new_tasks);
+        Btn_new_task = binding.btnAdd; //(Button) findViewById(R.id.btn_add);
+        ET_new_task = binding.etNewTasks; //(EditText) findViewById(R.id.et_new_tasks);
 
         Btn_new_task.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +74,7 @@ public class DataBaseActivity extends AppCompatActivity {
         });
 
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_list_tasks);
+        RecyclerView recyclerView = binding.rvListTasks; //(RecyclerView) findViewById(R.id.rv_list_tasks);
 
         FirebaseRecyclerAdapter<String, TaskViewHolder> adapter;
 
@@ -107,4 +112,6 @@ public class DataBaseActivity extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
     }
+
+
 }

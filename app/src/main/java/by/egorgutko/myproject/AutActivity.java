@@ -1,6 +1,7 @@
 package by.egorgutko.myproject;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import by.egorgutko.myproject.databinding.ActivityAutBinding;
+
 public class AutActivity extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -28,7 +31,8 @@ public class AutActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aut);
+        //setContentView(R.layout.activity_aut);
+        ActivityAutBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_aut);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -45,8 +49,8 @@ public class AutActivity extends AppCompatActivity implements View.OnClickListen
                 }
             }
         };
-        ETemail = (EditText) findViewById(R.id.et_email);
-        ETpassword = (EditText) findViewById(R.id.et_password);
+        ETemail = binding.etEmail; //(EditText) findViewById(R.id.et_email);
+        ETpassword = binding.etPassword; //(EditText) findViewById(R.id.et_password);
 
         findViewById(R.id.btn_sign_in).setOnClickListener(this);
         findViewById(R.id.btn_registration).setOnClickListener(this);

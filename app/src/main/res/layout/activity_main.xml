@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2"
-        android:layout_marginTop="3pt"
-        android:layout_marginLeft="5pt"
-        android:layout_marginRight="5pt"
-        android:orientation="vertical">
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:text="Show(List)"
-        android:textSize="8pt"
-        android:id="@+id/ListOfTraining">
-    </Button>
-        <Button
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="Retrofit"
-            android:textSize="8pt"
-            android:id="@+id/Retr">
-        </Button>
-        <Button
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="Base(firebase)"
-            android:textSize="8pt"
-            android:id="@+id/dataBase">
-        </Button>
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:text="Exit"
-            android:textSize="8pt"
-            android:id="@+id/ExitOfApp">
-        </Button>
-    </LinearLayout>>
-</android.support.constraint.ConstraintLayout>
+            android:layout_marginLeft="5pt"
+            android:layout_marginTop="3pt"
+            android:layout_marginRight="5pt"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/ListOfTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Show(List)"
+                android:textSize="8pt"></Button>
+
+            <Button
+                android:id="@+id/Retr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Retrofit"
+                android:textSize="8pt"></Button>
+
+            <Button
+                android:id="@+id/dataBase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Base(firebase)"
+                android:textSize="8pt"></Button>
+
+            <Button
+                android:id="@+id/ExitOfApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Exit"
+                android:textSize="8pt"></Button>
+        </LinearLayout>
+        >
+    </android.support.constraint.ConstraintLayout>
+</layout>
