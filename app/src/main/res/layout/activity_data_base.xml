@@ -28,7 +28,7 @@
             android:layout_alignBaseline="@+id/et_new_tasks"
             android:layout_alignBottom="@+id/et_new_tasks"
             android:layout_alignParentEnd="true"
-            android:text="New"
+            android:text="@string/forActivityDataBaseNew"
             tools:ignore="RtlCompat" />
     </RelativeLayout>
 </layout>

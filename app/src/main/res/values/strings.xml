@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MyProject</string>
+    <string name="forButtonList">Show(List)</string>
+    <string name="forButtonRetrofit">Retrofit</string>
+    <string name="forButtonBase">Base(firebase)</string>
+    <string name="forButtonExit">Exit</string>
+    <string name="forDetail">Добавить изображение</string>
+    <string name="forActivityDataBaseNew">New</string>
+    <string name="forAutorization">Авторизация</string>
+    <string name="forRegistration">Регистрация</string>
+    <string name="forListItem">New text</string>
+    <string name="forDelite">Del</string>
+    <string name="forFragment">Fragment</string>
 </resources>

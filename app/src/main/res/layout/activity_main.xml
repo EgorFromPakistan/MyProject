@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Show(List)"
+                android:text="@string/forButtonList"
                 android:textSize="8pt"></Button>
 
             <Button
@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Retrofit"
+                android:text="@string/forButtonRetrofit"
                 android:textSize="8pt"></Button>
 
             <Button
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Base(firebase)"
+                android:text="@string/forButtonBase"
                 android:textSize="8pt"></Button>
 
             <Button
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Exit"
+                android:text="@string/forButtonExit"
                 android:textSize="8pt"></Button>
         </LinearLayout>
         >
