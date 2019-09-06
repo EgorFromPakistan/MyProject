@@ -71,9 +71,15 @@ public class AutActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_sign_in) {
-            signin(ETemail.getText().toString(), ETpassword.getText().toString());
+            if ((!"".equals(ETemail.getText().toString())) && (!"".equals(ETpassword.getText().toString())))
+                signin(ETemail.getText().toString(), ETpassword.getText().toString());
+            else
+                Toast.makeText(AutActivity.this, "Вы не ввели нужные данные", Toast.LENGTH_SHORT).show();
         } else if (view.getId() == R.id.btn_registration) {
-            registration(ETemail.getText().toString(), ETpassword.getText().toString());
+            if ((!"".equals(ETemail.getText().toString())) && (!"".equals(ETpassword.getText().toString())))
+                registration(ETemail.getText().toString(), ETpassword.getText().toString());
+            else
+                Toast.makeText(AutActivity.this, "Вы не ввели нужные данные", Toast.LENGTH_SHORT).show();
         }
 
     }
